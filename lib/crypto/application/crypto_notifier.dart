@@ -12,7 +12,7 @@ class CryptoState with _$CryptoState {
   const factory CryptoState.initial() = _Initial;
   const factory CryptoState.loading() = _Loading;
   const factory CryptoState.data(List<Crypto> crypto) = _Data;
-  const factory CryptoState.faliure(ApiFailure failure) = _Faliure;
+  const factory CryptoState.failure(ApiFailure failure) = _Failure;
 }
 
 class CryptoNotifier extends StateNotifier<CryptoState> {
@@ -22,6 +22,7 @@ class CryptoNotifier extends StateNotifier<CryptoState> {
   Future<void> getApiData() async {
     state = const CryptoState.loading();
     final successOrFailure = await _cryptoService.getApiData();
-    state = successOrFailure.fold((l) => CryptoState.faliure(l), (r) => CryptoState.data(r));
+    state = successOrFailure.fold(
+        (l) => CryptoState.failure(l), (r) => CryptoState.data(r));
   }
 }

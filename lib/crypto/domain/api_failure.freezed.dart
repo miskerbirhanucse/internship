@@ -18,8 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ApiFailureTearOff {
   const _$ApiFailureTearOff();
 
-  _Server server() {
-    return const _Server();
+  _Server server([String? message]) {
+    return _Server(
+      message,
+    );
   }
 }
 
@@ -28,19 +30,21 @@ const $ApiFailure = _$ApiFailureTearOff();
 
 /// @nodoc
 mixin _$ApiFailure {
+  String? get message => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() server,
+    required TResult Function(String? message) server,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? server,
+    TResult Function(String? message)? server,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? server,
+    TResult Function(String? message)? server,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +64,10 @@ mixin _$ApiFailure {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ApiFailureCopyWith<ApiFailure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -67,6 +75,7 @@ abstract class $ApiFailureCopyWith<$Res> {
   factory $ApiFailureCopyWith(
           ApiFailure value, $Res Function(ApiFailure) then) =
       _$ApiFailureCopyWithImpl<$Res>;
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -76,12 +85,26 @@ class _$ApiFailureCopyWithImpl<$Res> implements $ApiFailureCopyWith<$Res> {
   final ApiFailure _value;
   // ignore: unused_field
   final $Res Function(ApiFailure) _then;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_value.copyWith(
+      message: message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$ServerCopyWith<$Res> {
+abstract class _$ServerCopyWith<$Res> implements $ApiFailureCopyWith<$Res> {
   factory _$ServerCopyWith(_Server value, $Res Function(_Server) then) =
       __$ServerCopyWithImpl<$Res>;
+  @override
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -92,51 +115,74 @@ class __$ServerCopyWithImpl<$Res> extends _$ApiFailureCopyWithImpl<$Res>
 
   @override
   _Server get _value => super._value as _Server;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_Server(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Server extends _Server {
-  const _$_Server() : super._();
+  const _$_Server([this.message]) : super._();
+
+  @override
+  final String? message;
 
   @override
   String toString() {
-    return 'ApiFailure.server()';
+    return 'ApiFailure.server(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Server);
+        (other.runtimeType == runtimeType &&
+            other is _Server &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ServerCopyWith<_Server> get copyWith =>
+      __$ServerCopyWithImpl<_Server>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() server,
+    required TResult Function(String? message) server,
   }) {
-    return server();
+    return server(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? server,
+    TResult Function(String? message)? server,
   }) {
-    return server?.call();
+    return server?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? server,
+    TResult Function(String? message)? server,
     required TResult orElse(),
   }) {
     if (server != null) {
-      return server();
+      return server(message);
     }
     return orElse();
   }
@@ -171,6 +217,12 @@ class _$_Server extends _Server {
 }
 
 abstract class _Server extends ApiFailure {
-  const factory _Server() = _$_Server;
+  const factory _Server([String? message]) = _$_Server;
   const _Server._() : super._();
+
+  @override
+  String? get message;
+  @override
+  @JsonKey(ignore: true)
+  _$ServerCopyWith<_Server> get copyWith => throw _privateConstructorUsedError;
 }

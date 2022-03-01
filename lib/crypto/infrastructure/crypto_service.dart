@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -23,9 +24,13 @@ class CryptoService {
       final body = json.decode(result.toString()) as List;
       final cryptoDto = body.map((x) => CryptoDTO.fromJson(x));
       final cryptoDomain = cryptoDto.map((x) => x.toDomain()).toList();
- 
+
       return right(cryptoDomain);
     } on DioError catch (e) {
+      if (e.error is SocketException) {
+        return left(
+            const ApiFailure.server("connect to the internet and retry"));
+      }
       return left(const ApiFailure.server());
     }
   }

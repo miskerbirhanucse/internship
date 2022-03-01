@@ -19,25 +19,14 @@ class HomePageState extends ConsumerState<HomePage> {
     ref.read(apiRequestNotifierProvider.notifier).getApiData();
   }
 
+  Future loadApiData() async {
+    ref.read(apiRequestNotifierProvider.notifier).getApiData();
+  }
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
-
-    // ref.listen<CryptoState>(apiRequestNotifierProvider, (_, state) {
-    //   state.maybeMap(
-    //     orElse: () {},
-    //     loading: (_) {
-    //       return showDialog(
-    //         context: context,
-    //         barrierDismissible: false,
-    //         builder: (context) => const Center(
-    //           child: CircularProgressIndicator(),
-    //         ),
-    //       );
-    //     },
-    //   );
-    // });
     final state = ref.watch(apiRequestNotifierProvider);
     return SafeArea(
       child: state.maybeMap(
@@ -49,10 +38,27 @@ class HomePageState extends ConsumerState<HomePage> {
             ),
           );
         },
+        failure: (_) {
+          return Stack(
+            children: [
+              Positioned(
+                  top: height / 2.5,
+                  right: 80,
+                  child: Text(_.failure.message!)),
+              Positioned(
+                  top: height / 2.2,
+                  right: width / 2.5,
+                  child: ElevatedButton(
+                    child: const Text("Retry"),
+                    onPressed: () => loadApiData(),
+                  ))
+            ],
+          );
+        },
         data: (value) {
           return SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(left: 15.0, right: 15),
+              padding: const EdgeInsets.only(left: 10.0, right: 10),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -85,6 +91,7 @@ class HomePageState extends ConsumerState<HomePage> {
                   ),
                   const SizedBox(height: 15),
                   Flexible(
+                    flex: 10,
                     fit: FlexFit.loose,
                     child: ListView.builder(
                       primary: false,
@@ -113,15 +120,20 @@ class HomePageState extends ConsumerState<HomePage> {
                                   const Text("Received",
                                       style: TextStyle(color: Colors.grey)),
                                   SizedBox(
-                                    width: 120,
-                                    child: Text(
-                                      "0.0065 ${value.crypto[index].name}",
-                                      maxLines: 1,
-                                      softWrap: false,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: const TextStyle(
+                                    height: 20,
+                                    width: 150,
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Text(
+                                        "0.0065 ${value.crypto[index].name}",
+                                        maxLines: 1,
+                                        softWrap: false,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 14),
+                                          fontSize: 14,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                   Text(
@@ -135,7 +147,7 @@ class HomePageState extends ConsumerState<HomePage> {
                               const Spacer(),
                               Center(
                                 child: Text(
-                                  "+\$${value.crypto[index].price.toString()}",
+                                  "+\$${value.crypto[index].price.toStringAsFixed(2)}",
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Colors.green),
@@ -155,4 +167,20 @@ class HomePageState extends ConsumerState<HomePage> {
       ),
     );
   }
+}
+
+class RefreshWidget extends StatefulWidget {
+  const RefreshWidget({Key? key, required this.child, required this.onRefresh})
+      : super(key: key);
+  final Widget child;
+  final Future Function() onRefresh;
+  @override
+  _RefreshWidgetState createState() => _RefreshWidgetState();
+}
+
+class _RefreshWidgetState extends State<RefreshWidget> {
+  @override
+  Widget build(BuildContext context) => buildForAndroid();
+  Widget buildForAndroid() =>
+      RefreshIndicator(child: widget.child, onRefresh: widget.onRefresh);
 }

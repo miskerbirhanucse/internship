@@ -32,8 +32,8 @@ class _$CryptoStateTearOff {
     );
   }
 
-  _Faliure faliure(ApiFailure failure) {
-    return _Faliure(
+  _Failure failure(ApiFailure failure) {
+    return _Failure(
       failure,
     );
   }
@@ -49,7 +49,7 @@ mixin _$CryptoState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Crypto> crypto) data,
-    required TResult Function(ApiFailure failure) faliure,
+    required TResult Function(ApiFailure failure) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,7 +57,7 @@ mixin _$CryptoState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Crypto> crypto)? data,
-    TResult Function(ApiFailure failure)? faliure,
+    TResult Function(ApiFailure failure)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,7 +65,7 @@ mixin _$CryptoState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Crypto> crypto)? data,
-    TResult Function(ApiFailure failure)? faliure,
+    TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,7 +74,7 @@ mixin _$CryptoState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Data value) data,
-    required TResult Function(_Faliure value) faliure,
+    required TResult Function(_Failure value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,7 +82,7 @@ mixin _$CryptoState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Data value)? data,
-    TResult Function(_Faliure value)? faliure,
+    TResult Function(_Failure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,7 +90,7 @@ mixin _$CryptoState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Data value)? data,
-    TResult Function(_Faliure value)? faliure,
+    TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -153,7 +153,7 @@ class _$_Initial extends _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Crypto> crypto) data,
-    required TResult Function(ApiFailure failure) faliure,
+    required TResult Function(ApiFailure failure) failure,
   }) {
     return initial();
   }
@@ -164,7 +164,7 @@ class _$_Initial extends _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Crypto> crypto)? data,
-    TResult Function(ApiFailure failure)? faliure,
+    TResult Function(ApiFailure failure)? failure,
   }) {
     return initial?.call();
   }
@@ -175,7 +175,7 @@ class _$_Initial extends _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Crypto> crypto)? data,
-    TResult Function(ApiFailure failure)? faliure,
+    TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -190,7 +190,7 @@ class _$_Initial extends _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Data value) data,
-    required TResult Function(_Faliure value) faliure,
+    required TResult Function(_Failure value) failure,
   }) {
     return initial(this);
   }
@@ -201,7 +201,7 @@ class _$_Initial extends _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Data value)? data,
-    TResult Function(_Faliure value)? faliure,
+    TResult Function(_Failure value)? failure,
   }) {
     return initial?.call(this);
   }
@@ -212,7 +212,7 @@ class _$_Initial extends _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Data value)? data,
-    TResult Function(_Faliure value)? faliure,
+    TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -268,7 +268,7 @@ class _$_Loading extends _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Crypto> crypto) data,
-    required TResult Function(ApiFailure failure) faliure,
+    required TResult Function(ApiFailure failure) failure,
   }) {
     return loading();
   }
@@ -279,7 +279,7 @@ class _$_Loading extends _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Crypto> crypto)? data,
-    TResult Function(ApiFailure failure)? faliure,
+    TResult Function(ApiFailure failure)? failure,
   }) {
     return loading?.call();
   }
@@ -290,7 +290,7 @@ class _$_Loading extends _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Crypto> crypto)? data,
-    TResult Function(ApiFailure failure)? faliure,
+    TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -305,7 +305,7 @@ class _$_Loading extends _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Data value) data,
-    required TResult Function(_Faliure value) faliure,
+    required TResult Function(_Failure value) failure,
   }) {
     return loading(this);
   }
@@ -316,7 +316,7 @@ class _$_Loading extends _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Data value)? data,
-    TResult Function(_Faliure value)? faliure,
+    TResult Function(_Failure value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -327,7 +327,7 @@ class _$_Loading extends _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Data value)? data,
-    TResult Function(_Faliure value)? faliure,
+    TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -407,7 +407,7 @@ class _$_Data extends _Data {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Crypto> crypto) data,
-    required TResult Function(ApiFailure failure) faliure,
+    required TResult Function(ApiFailure failure) failure,
   }) {
     return data(crypto);
   }
@@ -418,7 +418,7 @@ class _$_Data extends _Data {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Crypto> crypto)? data,
-    TResult Function(ApiFailure failure)? faliure,
+    TResult Function(ApiFailure failure)? failure,
   }) {
     return data?.call(crypto);
   }
@@ -429,7 +429,7 @@ class _$_Data extends _Data {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Crypto> crypto)? data,
-    TResult Function(ApiFailure failure)? faliure,
+    TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -444,7 +444,7 @@ class _$_Data extends _Data {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Data value) data,
-    required TResult Function(_Faliure value) faliure,
+    required TResult Function(_Failure value) failure,
   }) {
     return data(this);
   }
@@ -455,7 +455,7 @@ class _$_Data extends _Data {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Data value)? data,
-    TResult Function(_Faliure value)? faliure,
+    TResult Function(_Failure value)? failure,
   }) {
     return data?.call(this);
   }
@@ -466,7 +466,7 @@ class _$_Data extends _Data {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Data value)? data,
-    TResult Function(_Faliure value)? faliure,
+    TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -486,28 +486,28 @@ abstract class _Data extends CryptoState {
 }
 
 /// @nodoc
-abstract class _$FaliureCopyWith<$Res> {
-  factory _$FaliureCopyWith(_Faliure value, $Res Function(_Faliure) then) =
-      __$FaliureCopyWithImpl<$Res>;
+abstract class _$FailureCopyWith<$Res> {
+  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
+      __$FailureCopyWithImpl<$Res>;
   $Res call({ApiFailure failure});
 
   $ApiFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
-class __$FaliureCopyWithImpl<$Res> extends _$CryptoStateCopyWithImpl<$Res>
-    implements _$FaliureCopyWith<$Res> {
-  __$FaliureCopyWithImpl(_Faliure _value, $Res Function(_Faliure) _then)
-      : super(_value, (v) => _then(v as _Faliure));
+class __$FailureCopyWithImpl<$Res> extends _$CryptoStateCopyWithImpl<$Res>
+    implements _$FailureCopyWith<$Res> {
+  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
+      : super(_value, (v) => _then(v as _Failure));
 
   @override
-  _Faliure get _value => super._value as _Faliure;
+  _Failure get _value => super._value as _Failure;
 
   @override
   $Res call({
     Object? failure = freezed,
   }) {
-    return _then(_Faliure(
+    return _then(_Failure(
       failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -525,22 +525,22 @@ class __$FaliureCopyWithImpl<$Res> extends _$CryptoStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Faliure extends _Faliure {
-  const _$_Faliure(this.failure) : super._();
+class _$_Failure extends _Failure {
+  const _$_Failure(this.failure) : super._();
 
   @override
   final ApiFailure failure;
 
   @override
   String toString() {
-    return 'CryptoState.faliure(failure: $failure)';
+    return 'CryptoState.failure(failure: $failure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Faliure &&
+            other is _Failure &&
             const DeepCollectionEquality().equals(other.failure, failure));
   }
 
@@ -550,8 +550,8 @@ class _$_Faliure extends _Faliure {
 
   @JsonKey(ignore: true)
   @override
-  _$FaliureCopyWith<_Faliure> get copyWith =>
-      __$FaliureCopyWithImpl<_Faliure>(this, _$identity);
+  _$FailureCopyWith<_Failure> get copyWith =>
+      __$FailureCopyWithImpl<_Failure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -559,9 +559,9 @@ class _$_Faliure extends _Faliure {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<Crypto> crypto) data,
-    required TResult Function(ApiFailure failure) faliure,
+    required TResult Function(ApiFailure failure) failure,
   }) {
-    return faliure(failure);
+    return failure(this.failure);
   }
 
   @override
@@ -570,9 +570,9 @@ class _$_Faliure extends _Faliure {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Crypto> crypto)? data,
-    TResult Function(ApiFailure failure)? faliure,
+    TResult Function(ApiFailure failure)? failure,
   }) {
-    return faliure?.call(failure);
+    return failure?.call(this.failure);
   }
 
   @override
@@ -581,11 +581,11 @@ class _$_Faliure extends _Faliure {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<Crypto> crypto)? data,
-    TResult Function(ApiFailure failure)? faliure,
+    TResult Function(ApiFailure failure)? failure,
     required TResult orElse(),
   }) {
-    if (faliure != null) {
-      return faliure(failure);
+    if (failure != null) {
+      return failure(this.failure);
     }
     return orElse();
   }
@@ -596,9 +596,9 @@ class _$_Faliure extends _Faliure {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Data value) data,
-    required TResult Function(_Faliure value) faliure,
+    required TResult Function(_Failure value) failure,
   }) {
-    return faliure(this);
+    return failure(this);
   }
 
   @override
@@ -607,9 +607,9 @@ class _$_Faliure extends _Faliure {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Data value)? data,
-    TResult Function(_Faliure value)? faliure,
+    TResult Function(_Failure value)? failure,
   }) {
-    return faliure?.call(this);
+    return failure?.call(this);
   }
 
   @override
@@ -618,22 +618,22 @@ class _$_Faliure extends _Faliure {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Data value)? data,
-    TResult Function(_Faliure value)? faliure,
+    TResult Function(_Failure value)? failure,
     required TResult orElse(),
   }) {
-    if (faliure != null) {
-      return faliure(this);
+    if (failure != null) {
+      return failure(this);
     }
     return orElse();
   }
 }
 
-abstract class _Faliure extends CryptoState {
-  const factory _Faliure(ApiFailure failure) = _$_Faliure;
-  const _Faliure._() : super._();
+abstract class _Failure extends CryptoState {
+  const factory _Failure(ApiFailure failure) = _$_Failure;
+  const _Failure._() : super._();
 
   ApiFailure get failure;
   @JsonKey(ignore: true)
-  _$FaliureCopyWith<_Faliure> get copyWith =>
+  _$FailureCopyWith<_Failure> get copyWith =>
       throw _privateConstructorUsedError;
 }
